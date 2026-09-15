@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MK CLOUD</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      color: white;
+      background:
+        linear-gradient(rgba(5, 5, 12, .86), rgba(5, 5, 12, .96)),
+        radial-gradient(circle at top, #5b1010, #080808 65%);
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      border-bottom: 1px solid #351515;
+      background: rgba(0, 0, 0, .5);
+    }
+
+    .logo {
+      color: #ff2929;
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: 2px;
+    }
+
+    .status {
+      color: #ffb0b0;
+      font-size: 12px;
+    }
+
+    main {
+      width: 100%;
+      max-width: 1100px;
+      margin: auto;
+      padding: 35px 18px;
+    }
+
+    .hero {
+      text-align: center;
+      margin-bottom: 35px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 8vw, 65px);
+      color: #ff3030;
+      text-shadow: 0 0 25px #7d0000;
+    }
+
+    .hero p {
+      margin-top: 12px;
+      color: #c5c5c5;
+    }
+
+    .panel {
+      padding: 22px;
+      border: 1px solid #542020;
+      border-radius: 18px;
+      background: linear-gradient(145deg, #1b1010, #0c0c0c);
+      box-shadow: 0 0 30px rgba(255, 0, 0, .08);
+    }
+
+    .game {
+      display: grid;
+      grid-template-columns: 150px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+
+    .cover {
+      height: 180px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #750909, #130000);
+      border: 1px solid #b51d1d;
+      font-size: 35px;
+      font-weight: 900;
+      text-align: center;
+    }
+
+    .game h2 {
+      font-size: 27px;
+      margin-bottom: 8px;
+    }
+
+    .game p {
+      color: #aaa;
+      margin-bottom: 18px;
+    }
+
+    button {
+      width: 100%;
+      max-width: 300px;
+      padding: 15px;
+      border: 0;
+      border-radius: 9px;
+      background: #e51c23;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3038;
+    }
+
+    .info {
+      margin-top: 25px;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .info div {
+      padding: 17px;
+      border-radius: 12px;
+      background: #151515;
+      border: 1px solid #292929;
+      text-align: center;
+    }
+
+    .info strong {
+      display: block;
+      color: #ff3838;
+      font-size: 21px;
+      margin-bottom: 5px;
+    }
+
+    .info span {
+      color: #aaa;
+      font-size: 12px;
+    }
+
+    #message {
+      display: none;
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      color: #ffd0d0;
+      background: #351313;
+      border: 1px solid #8c2929;
+    }
+
+    footer {
+      padding: 30px;
+      text-align: center;
+      color: #777;
+      font-size: 12px;
+    }
+
+    @media (max-width: 600px) {
+      .game {
+        grid-template-columns: 1fr;
+      }
+
+      .cover {
+        height: 150px;
+      }
+
+      .info {
+        grid-template-columns: 1fr;
+      }
+
+      button {
+        max-width: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="logo">MK CLOUD</div>
+    <div class="status">● Plataforma online</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <h1>MK CLOUD</h1>
+      <p>Seu Mortal Kombat na nuvem.</p>
+    </section>
+
+    <section class="panel">
+      <div class="game">
+        <div class="cover">MK<br>9</div>
+
+        <div>
+          <h2>Mortal Kombat 9</h2>
+          <p>
+            Prepare-se para lutar. O jogo será iniciado através
+            de um servidor de Cloud Gaming conectado à plataforma.
+          </p>
+
+          <button onclick="jogar()">JOGAR MK9</button>
+        </div>
+      </div>
+
+      <div id="message"></div>
+
+      <div class="info">
+        <div>
+          <strong>MK9</strong>
+          <span>Jogo disponível</span>
+        </div>
+
+        <div>
+          <strong>ONLINE</strong>
+          <span>Status da plataforma</span>
+        </div>
+
+        <div>
+          <strong>GPU</strong>
+          <span>Servidor necessário</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    MK CLOUD © 2026 — Plataforma experimental de Cloud Gaming
+  </footer>
+
+  <script>
+    function jogar() {
+      const message = document.getElementById("message");
+
+      message.style.display = "block";
+      message.innerHTML =
+        "⚠️ O site está funcionando, mas ainda não existe um servidor GPU conectado. " +
+        "O próximo passo será conectar um computador Windows com Mortal Kombat 9 e streaming.";
+    }
+  </script>
+</body>
+</html>
